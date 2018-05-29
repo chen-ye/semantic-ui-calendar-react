@@ -30,7 +30,9 @@ function DateInput(props) {
       startMode = props.startMode,
       popupPosition = props.popupPosition,
       inline = props.inline,
-      value = props.value;
+      value = props.value,
+      popupProps = props.popupProps,
+      pickerProps = props.pickerProps;
 
   var onDateChange = function onDateChange(event, data) {
     if (data.value.format) {
@@ -52,21 +54,22 @@ function DateInput(props) {
   }
   return _react2.default.createElement(
     _containers.CustomPopup,
-    {
+    _extends({
       on: 'click',
       position: popupPosition,
       className: 'suir-calendar popup',
       hoverable: true,
-      trigger: inputElement },
-    _react2.default.createElement(_containers.DatePicker, {
+      trigger: inputElement
+    }, popupProps),
+    _react2.default.createElement(_containers.DatePicker, _extends({}, pickerProps, {
       initialValue: value,
       dateFormat: dateFormat,
       startMode: startMode,
-      onDateChange: onDateChange })
+      onDateChange: onDateChange }))
   );
 }
 
-DateInput.handledProps = ['dateFormat', 'icon', 'inline', 'onChange', 'popupPosition', 'startMode', 'value'];
+DateInput.handledProps = ['dateFormat', 'icon', 'inline', 'onChange', 'pickerProps', 'popupPosition', 'popupProps', 'startMode', 'value'];
 DateInput.propTypes = {
   /** Called on change.
    * @param {SyntheticEvent} event React's original SyntheticEvent.
@@ -82,7 +85,9 @@ DateInput.propTypes = {
   startMode: _propTypes2.default.oneOf(['year', 'month', 'day']),
   popupPosition: _propTypes2.default.oneOf(['top left', 'top right', 'bottom left', 'bottom right', 'right center', 'left center', 'top center', 'bottom center']),
   inline: _propTypes2.default.bool,
-  value: _propTypes2.default.string
+  value: _propTypes2.default.string,
+  pickerProps: _propTypes2.default.object,
+  popupProps: _propTypes2.default.object
 };
 
 DateInput.defaultProps = {

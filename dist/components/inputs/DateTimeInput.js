@@ -82,11 +82,14 @@ var DateTimeInput = function (_React$Component) {
     value: function render() {
       var _props = this.props,
           icon = _props.icon,
+          dateFormat = _props.dateFormat,
           onChange = _props.onChange,
           startMode = _props.startMode,
           popupPosition = _props.popupPosition,
           inline = _props.inline,
-          value = _props.value;
+          value = _props.value,
+          popupProps = _props.popupProps,
+          pickerProps = _props.pickerProps;
 
       var rest = (0, _utils.getUnhandledProps)(DateTimeInput, this.props);
 
@@ -96,25 +99,26 @@ var DateTimeInput = function (_React$Component) {
         icon: icon }));
       if (inline) {
         return _react2.default.createElement(_containers.DateTimePicker, {
-          dateFormat: this.props.dateFormat,
+          dateFormat: dateFormat,
           startMode: startMode,
           onDateChange: this.onDateChange,
           onTimeChange: this.onTimeChange });
       }
       return _react2.default.createElement(
         _containers.CustomPopup,
-        {
+        _extends({
           on: 'click',
           position: popupPosition,
           className: 'suir-calendar popup',
           hoverable: true,
-          trigger: inputElement },
-        _react2.default.createElement(_containers.DateTimePicker, {
+          trigger: inputElement
+        }, popupProps),
+        _react2.default.createElement(_containers.DateTimePicker, _extends({}, pickerProps, {
           initialValue: value,
-          dateFormat: this.props.dateFormat,
+          dateFormat: dateFormat,
           startMode: startMode,
           onDateChange: this.onDateChange,
-          onTimeChange: this.onTimeChange })
+          onTimeChange: this.onTimeChange }))
       );
     }
   }]);
@@ -122,7 +126,7 @@ var DateTimeInput = function (_React$Component) {
   return DateTimeInput;
 }(_react2.default.Component);
 
-DateTimeInput.handledProps = ['dateFormat', 'divider', 'icon', 'inline', 'onChange', 'popupPosition', 'startMode', 'value'];
+DateTimeInput.handledProps = ['dateFormat', 'divider', 'icon', 'inline', 'onChange', 'pickerProps', 'popupPosition', 'popupProps', 'startMode', 'value'];
 
 
 DateTimeInput.propTypes = {
@@ -142,7 +146,9 @@ DateTimeInput.propTypes = {
   startMode: _propTypes2.default.oneOf(['year', 'month', 'day']),
   popupPosition: _propTypes2.default.oneOf(['top left', 'top right', 'bottom left', 'bottom right', 'right center', 'left center', 'top center', 'bottom center']),
   inline: _propTypes2.default.bool,
-  value: _propTypes2.default.string
+  value: _propTypes2.default.string,
+  pickerProps: _propTypes2.default.object,
+  popupProps: _propTypes2.default.object
 };
 
 DateTimeInput.defaultProps = {
