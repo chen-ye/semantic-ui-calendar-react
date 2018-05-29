@@ -111,6 +111,7 @@ function PickerHeader(props) {
         _semanticUiReact.Table.HeaderCell,
         { className: cellClasses, colSpan: '1' },
         _react2.default.createElement(_semanticUiReact.Icon, {
+          fitted: true,
           className: buttonClasses,
           onClick: onPrevBtnClick,
           name: 'chevron left' })
@@ -131,6 +132,7 @@ function PickerHeader(props) {
         _semanticUiReact.Table.HeaderCell,
         { className: cellClasses, colSpan: '1' },
         _react2.default.createElement(_semanticUiReact.Icon, {
+          fitted: true,
           className: buttonClasses,
           onClick: onNextBtnClick,
           name: 'chevron right' })
