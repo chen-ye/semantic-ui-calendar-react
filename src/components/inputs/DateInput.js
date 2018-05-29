@@ -12,7 +12,9 @@ function DateInput(props) {
     startMode,
     popupPosition,
     inline,
-    value
+    value,
+    popupProps,
+    pickerProps,
   } = props;
   const onDateChange = (event, data) => {
     if (data.value.format) {
@@ -43,8 +45,10 @@ function DateInput(props) {
       position={popupPosition}
       className="suir-calendar popup"
       hoverable
-      trigger={inputElement}>
+      trigger={inputElement}
+      { ...popupProps }>
       <DatePicker
+        { ...pickerProps }
         initialValue={value}
         dateFormat={dateFormat}
         startMode={startMode}
@@ -77,7 +81,9 @@ DateInput.propTypes = {
     'bottom center'
   ]),
   inline: PropTypes.bool,
-  value: PropTypes.string
+  value: PropTypes.string,
+  pickerProps: PropTypes.object,
+  popupProps: PropTypes.object,
 };
 
 DateInput.defaultProps = {
