@@ -82,11 +82,10 @@ function PickerHeader(props) {
     <Table.Header { ...rest }>
       { activeDatesRange && getRangeRow() }
       <Table.Row>
-        <Table.HeaderCell className={cellClasses} colSpan="1">
+        <Table.HeaderCell className={cellClasses} colSpan="1" onClick={onPrevBtnClick}>
           <Icon
             fitted
             className={buttonClasses}
-            onClick={onPrevBtnClick}
             name="chevron left" />
         </Table.HeaderCell>
         <Table.HeaderCell
@@ -95,11 +94,10 @@ function PickerHeader(props) {
           colSpan={(parseInt(width) - 2).toString()}>
           <span style={headerCellStyle}>{ getContent() }</span>
         </Table.HeaderCell>
-        <Table.HeaderCell className={cellClasses} colSpan="1">
+        <Table.HeaderCell className={cellClasses} colSpan="1" onClick={onNextBtnClick}>
           <Icon
             fitted
             className={buttonClasses}
-            onClick={onNextBtnClick}
             name="chevron right" />
         </Table.HeaderCell>
       </Table.Row>
