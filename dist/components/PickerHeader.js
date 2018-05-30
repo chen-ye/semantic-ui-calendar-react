@@ -109,11 +109,10 @@ function PickerHeader(props) {
       null,
       _react2.default.createElement(
         _semanticUiReact.Table.HeaderCell,
-        { className: cellClasses, colSpan: '1' },
+        { className: cellClasses, colSpan: '1', onClick: onPrevBtnClick },
         _react2.default.createElement(_semanticUiReact.Icon, {
           fitted: true,
           className: buttonClasses,
-          onClick: onPrevBtnClick,
           name: 'chevron left' })
       ),
       _react2.default.createElement(
@@ -130,11 +129,10 @@ function PickerHeader(props) {
       ),
       _react2.default.createElement(
         _semanticUiReact.Table.HeaderCell,
-        { className: cellClasses, colSpan: '1' },
+        { className: cellClasses, colSpan: '1', onClick: onNextBtnClick },
         _react2.default.createElement(_semanticUiReact.Icon, {
           fitted: true,
           className: buttonClasses,
-          onClick: onNextBtnClick,
           name: 'chevron right' })
       )
     ),
